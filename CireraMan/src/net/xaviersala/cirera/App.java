@@ -3,17 +3,23 @@ package net.xaviersala.cirera;
 import java.awt.event.KeyEvent;
 
 import acm.graphics.GImage;
+import acm.graphics.GLabel;
 import acm.graphics.GRectangle;
 import acm.program.GraphicsProgram;
 
 public class App extends GraphicsProgram {
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 5398421970612932362L;
 
   Camp camp;
 
   public void run() {
 
     // Obtenir coordenades de pantalla
-    GRectangle mida = new GRectangle(0, 0, 800, 800);
+    GRectangle mida = new GRectangle(0, 0, 600, 600);
 
     // Preparar el cassador
     GImage imatge = new GImage("cireraire.png");
@@ -21,6 +27,8 @@ public class App extends GraphicsProgram {
     CassadorDeCireres cassador = new CassadorDeCireres(imatge);
 
     camp = new Camp(mida, cassador);
+
+    clicaPerComencar();
 
   }
 
@@ -50,5 +58,16 @@ public class App extends GraphicsProgram {
     addKeyListeners(this);
   }
 
+  /**
+   * Clica per començar.
+   */
+  private void clicaPerComencar() {
+      GLabel label = new GLabel("Clica per començar");
+      double x = (getWidth() - label.getWidth()) / 2;
+      double y = (getHeight() + label.getAscent()) / 2;
+      add(label, x, y);
+      waitForClick();
+      remove(label);
+  }
 
 }

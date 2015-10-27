@@ -1,6 +1,7 @@
 package net.xaviersala.cirera;
 
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 import acm.graphics.GImage;
 import acm.graphics.GLabel;
@@ -15,6 +16,8 @@ public class App extends GraphicsProgram {
   private static final long serialVersionUID = 5398421970612932362L;
 
   Camp camp;
+  Random aleatori = new Random();
+
 
   public void run() {
 
@@ -30,6 +33,19 @@ public class App extends GraphicsProgram {
 
     clicaPerComencar();
 
+    for(int i=0; i<10; i++) {
+     camp.afegirCirera(generaCirera());
+    }
+
+  }
+
+  private Cirera generaCirera() {
+    GImage imatgeCirera = new GImage("cirera.png");
+    add(imatgeCirera);
+
+    return new Cirera(imatgeCirera,
+        aleatori.nextInt((int) (getWidth() - imatgeCirera.getWidth())),
+        aleatori.nextInt((int) (getHeight() - imatgeCirera.getHeight())));
   }
 
   @Override
@@ -54,7 +70,7 @@ public class App extends GraphicsProgram {
 
 
   public void init() {
-    setSize(800, 800);
+    setSize(600, 600);
     addKeyListeners(this);
   }
 

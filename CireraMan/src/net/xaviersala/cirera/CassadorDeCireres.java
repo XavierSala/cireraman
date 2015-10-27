@@ -20,6 +20,12 @@ public class CassadorDeCireres {
     imatge.move(x * VELOCITATCASSADOR, y * VELOCITATCASSADOR);
   }
 
+  public GRectangle onAnira(int x, int y) {
+    GRectangle pos = imatge.getBounds();
+    pos.setLocation(pos.getX() + x * VELOCITATCASSADOR, pos.getY()+ y * VELOCITATCASSADOR);
+    return pos;
+  }
+
 
 
 }

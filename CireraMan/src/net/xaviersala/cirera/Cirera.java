@@ -16,5 +16,10 @@ public class Cirera {
     return imatge.getBounds();
   }
 
+  public void recollida() {
+    imatge.setVisible(false);
+    imatge.setLocation(22000,11000);
+  }
+
 
 }

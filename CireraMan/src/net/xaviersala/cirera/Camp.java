@@ -31,6 +31,14 @@ public class Camp {
       System.out.println("bloc!");
     }
 
+    pos = cassador.getPosicio();
+    for(Cirera cirera: cireres) {
+       if (pos.intersects(cirera.getPosicio())) {
+         cirera.recollida();
+
+       }
+    }
+
   }
 
 }

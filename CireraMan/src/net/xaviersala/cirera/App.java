@@ -1,6 +1,7 @@
 package net.xaviersala.cirera;
 
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 import acm.graphics.GImage;
 import acm.graphics.GLabel;
@@ -9,17 +10,20 @@ import acm.program.GraphicsProgram;
 
 public class App extends GraphicsProgram {
 
+  private static final int MIDAPANTALLA = 600;
+
   /**
    *
    */
   private static final long serialVersionUID = 5398421970612932362L;
 
   Camp camp;
+  Random aleatori = new Random();
 
   public void run() {
 
     // Obtenir coordenades de pantalla
-    GRectangle mida = new GRectangle(0, 0, 600, 600);
+    GRectangle mida = new GRectangle(0, 0, MIDAPANTALLA, MIDAPANTALLA);
 
     // Preparar el cassador
     GImage imatge = new GImage("cireraire.png");
@@ -28,8 +32,24 @@ public class App extends GraphicsProgram {
 
     camp = new Camp(mida, cassador);
 
+    for(int i=0; i<10; i++) {   
+      camp.afegirCirera(generaCirera());
+    }
+
     clicaPerComencar();
 
+  }
+
+  /**
+   * @return
+   */
+  private Cirera generaCirera() {
+    GImage imatgeCirera = new GImage("cirera.png");
+    add(imatgeCirera);
+    Cirera cirera = new Cirera(imatgeCirera, 
+        aleatori.nextInt((int)(MIDAPANTALLA-imatgeCirera.getWidth())), 
+        aleatori.nextInt((int)(MIDAPANTALLA-imatgeCirera.getHeight())));
+    return cirera;
   }
 
   @Override

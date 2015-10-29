@@ -3,7 +3,7 @@ Programa per mostrar el funcionament d'un programa en ACM i alhora mostrar la id
 
 Programa
 ---------------
-Un pagès de ciutat ha llogat un camp en el que hi cauen les cireres d’un cirerer que està en el camp del costat. Com que és un fanàtic de la propietat privada pensa “cirera que cau en el meu cirerer, cirera que em quedo”
+Un pagès de ciutat ha llogat un camp en el que hi cauen les cireres d’un cirerer que està en el camp del costat. Com que és un fanàtic de la propietat privada pensa *“cirera que cau en el meu camp, cirera que em quedo”*
 
 ![recollidor](README/recollidor.png)
 
